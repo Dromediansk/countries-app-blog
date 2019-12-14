@@ -1,0 +1,31 @@
+.country-card {
+  width: 200px;
+  height: 250px;
+  border: 1px solid rgba(158, 158, 158, 0.5);
+  box-shadow: 8px 10px 15px -6px rgba(158, 158, 158, 1);
+  background: #ddd;
+  margin: 1rem;
+  padding: 0 1rem;
+  border-radius: 4px;
+  transition: all 0.5s;
+  text-align: center;
+}
+
+.country-card:hover {
+  transform: scale(1.05);
+}
+
+.country-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.country-info-container p {
+  padding: 0 0.5rem;
+}
+
+.country-flag {
+  width: 100px;
+  height: auto;
+}
