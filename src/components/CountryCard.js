@@ -5,13 +5,20 @@ const CountryCard = ({ country }) => {
   return (
     <div className="country-card">
       <h3>{country.name}</h3>
-      <div className="country-info-container">
-        <h4>Capital:</h4>
-        <p>{country.capital}</p>
-      </div>
-      <div className="country-info-container">
-        <img className="country-flag" src={country.flag} alt="Country flag" />
-      </div>
+      <hr />
+      <ul className="country-info-list">
+        <li className="country-info-item">
+          <h4>Capital:</h4>
+          <p>{country.capital}</p>
+        </li>
+        <li className="country-info-item">
+          <h4>Region:</h4>
+          <p>{country.region}</p>
+        </li>
+        <li className="country-info-item">
+          <img className="country-flag" src={country.flag} alt="Country flag" />
+        </li>
+      </ul>
     </div>
   );
 };
