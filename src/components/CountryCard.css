@@ -2,7 +2,9 @@
   width: 200px;
   height: 300px;
   border: 1px solid rgba(158, 158, 158, 0.5);
-  box-shadow: 8px 10px 15px -6px rgba(158, 158, 158, 1);
+  -webkit-box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.55);
+  -moz-box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.55);
+  box-shadow: 0px 0px 20px 1px rgba(0, 0, 0, 0.55);
   background: #ddd;
   margin: 1rem;
   padding: 0 1rem;
@@ -24,6 +26,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 35px;
+}
+
+.country-info-item h4,
+.country-info-item p {
+  margin: 0;
 }
 
 .country-info-item p {

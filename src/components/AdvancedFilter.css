@@ -1,0 +1,19 @@
+.filter-container {
+  text-align: center;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background: skyblue;
+  -webkit-box-shadow: 0px 5px 23px 15px rgba(169, 169, 169, 0.55);
+  -moz-box-shadow: 0px 5px 23px 15px rgba(169, 169, 169, 0.55);
+  box-shadow: 0px 5px 23px 15px rgba(169, 169, 169, 0.55);
+}
+
+.filter-input {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.filter-input[type="number"] {
+  width: 100px;
+}

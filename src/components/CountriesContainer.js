@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 import CountryCard from "./CountryCard";
+import AdvancedFilter from "./AdvancedFilter";
 
 // Calls
 import { getAllCountries } from "../calls/countries";
@@ -8,6 +9,14 @@ import "./CountriesContainer.css";
 
 const CountriesContainer = () => {
   const [countries, setCountries] = useState([]);
+  const [filterInput, setFilterInput] = useReducer(
+    (state, newState) => ({ ...state, ...newState }),
+    {
+      name: "",
+      capital: "",
+      population: ""
+    }
+  );
 
   useEffect(() => {
     getAllCountries().then(response => {
@@ -15,14 +24,37 @@ const CountriesContainer = () => {
     });
   }, []);
 
-  console.log("countries", countries);
+  const handleFilterCountries = event => {
+    const { name, value } = event.target;
+    setFilterInput({ [name]: value });
+  };
+
+  const filterByName = list => {
+    return list.filter(item => {
+      return (
+        item.name.toLowerCase().includes(filterInput.name.toLowerCase()) &&
+        item.capital
+          .toLowerCase()
+          .includes(filterInput.capital.toLowerCase()) &&
+        item.population >= filterInput.population
+      );
+    });
+  };
+
+  const countriesList = filterByName(countries);
 
   return (
-    <div className="countries-container">
-      {countries.map(country => {
-        return <CountryCard key={country.numericCode} country={country} />;
-      })}
-    </div>
+    <>
+      <AdvancedFilter
+        searchValue={filterInput}
+        handleChangeValue={handleFilterCountries}
+      />
+      <div className="countries-container">
+        {countriesList.map(country => (
+          <CountryCard key={country.numericCode} country={country} />
+        ))}
+      </div>
+    </>
   );
 };
 
