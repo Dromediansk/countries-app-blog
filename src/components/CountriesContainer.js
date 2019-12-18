@@ -29,7 +29,7 @@ const CountriesContainer = () => {
     setFilterInput({ [name]: value });
   };
 
-  const filterByName = list => {
+  const filterCountries = list => {
     return list.filter(item => {
       return (
         item.name.toLowerCase().includes(filterInput.name.toLowerCase()) &&
@@ -41,7 +41,7 @@ const CountriesContainer = () => {
     });
   };
 
-  const countriesList = filterByName(countries);
+  const countriesList = filterCountries(countries);
 
   return (
     <>
