@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect, useRef, useReducer } from "react";
 import CountryCard from "./CountryCard";
 import AdvancedFilter from "./AdvancedFilter";
 
@@ -9,6 +9,7 @@ import "./CountriesContainer.css";
 
 const CountriesContainer = () => {
   const [countries, setCountries] = useState([]);
+  const componentIsMounted = useRef(true);
   const [filterInput, setFilterInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
@@ -19,9 +20,18 @@ const CountriesContainer = () => {
   );
 
   useEffect(() => {
-    getAllCountries().then(response => {
-      setCountries(response);
-    });
+    getAllCountries()
+      .then(response => {
+        if (componentIsMounted.current) {
+          setCountries(response);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    return () => {
+      componentIsMounted.current = false;
+    };
   }, []);
 
   const handleFilterCountries = event => {
