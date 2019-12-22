@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import CountryCard from "./CountryCard";
 
 // Calls
@@ -8,14 +8,25 @@ import "./CountriesContainer.css";
 
 const CountriesContainer = () => {
   const [countries, setCountries] = useState([]);
+  const componentIsMounted = useRef(true);
 
   useEffect(() => {
-    getAllCountries().then(response => {
-      setCountries(response);
-    });
+    return () => {
+      componentIsMounted.current = false;
+    };
   }, []);
 
-  console.log("countries", countries);
+  useEffect(() => {
+    getAllCountries()
+      .then(response => {
+        if (componentIsMounted.current) {
+          setCountries(response);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }, [setCountries]);
 
   return (
     <div className="countries-container">
