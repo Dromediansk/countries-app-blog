@@ -11,12 +11,6 @@ const CountriesContainer = () => {
   const componentIsMounted = useRef(true);
 
   useEffect(() => {
-    return () => {
-      componentIsMounted.current = false;
-    };
-  }, []);
-
-  useEffect(() => {
     getAllCountries()
       .then(response => {
         if (componentIsMounted.current) {
@@ -26,7 +20,10 @@ const CountriesContainer = () => {
       .catch(err => {
         console.log(err);
       });
-  }, [setCountries]);
+    return () => {
+      componentIsMounted.current = false;
+    };
+  }, []);
 
   return (
     <div className="countries-container">
