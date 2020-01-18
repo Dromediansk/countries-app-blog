@@ -1,0 +1,14 @@
+.not-found-container {
+  text-align: center;
+  background: #d5e9f6;
+  padding: 1rem;
+}
+
+.not-found-img img {
+  width: 350px;
+}
+
+.not-found-paragraph {
+  margin-right: 7rem;
+  margin-left: 7rem;
+}

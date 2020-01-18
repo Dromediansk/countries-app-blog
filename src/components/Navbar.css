@@ -1,0 +1,22 @@
+.nav-container {
+  display: flex;
+  width: 100%;
+  height: 55px;
+  justify-content: center;
+  background: #daa520;
+  z-index: 2;
+}
+
+.nav-unordered-list {
+  list-style-type: none;
+  display: flex;
+}
+
+.nav-list-item {
+  margin: 0 10px;
+  padding: 0 1rem;
+}
+
+.nav-list-item a {
+  text-decoration: none;
+}

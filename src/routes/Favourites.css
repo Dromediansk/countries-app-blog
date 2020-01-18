@@ -1,0 +1,17 @@
+.favourites-countries {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.favourites-country {
+  max-height: 180px;
+  overflow: hidden;
+}
+
+.favourites-country img {
+  width: 350px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}

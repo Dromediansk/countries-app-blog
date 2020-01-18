@@ -1,0 +1,12 @@
+.home-page-container {
+  text-align: center;
+}
+
+.home-page-banner-image {
+  margin: 1rem;
+}
+
+.home-page-banner-image img {
+  width: 150px;
+  height: auto;
+}

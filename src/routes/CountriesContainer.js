@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useReducer } from "react";
-import CountryCard from "./CountryCard";
-import AdvancedFilter from "./AdvancedFilter";
+import CountryCard from "../components/CountryCard";
+import AdvancedFilter from "../components/AdvancedFilter";
 
 // Calls
 import { getAllCountries } from "../calls/countries";
