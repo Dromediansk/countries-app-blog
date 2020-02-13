@@ -1,6 +1,9 @@
 describe("Filter", () => {
-  it("Focus on the country input", () => {
+  before(() => {
     cy.visit("/data");
+  });
+
+  it("Focus on the country input", () => {
     cy.get('input[name="name"]').should("be.focused");
   });
 
