@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="country-card"
+  data-testid="country-card"
+>
+  <h3>
+    Slovakia
+  </h3>
+  <hr />
+  <ul
+    className="country-info-list"
+  >
+    <li
+      className="country-info-item"
+    >
+      <h4>
+        Capital:
+      </h4>
+      <p>
+        Bratislava
+      </p>
+    </li>
+    <li
+      className="country-info-item"
+    >
+      <h4>
+        Population:
+      </h4>
+      <p>
+        5000000
+      </p>
+    </li>
+    <li
+      className="country-info-item"
+    >
+      <h4>
+        Region:
+      </h4>
+      <p>
+        Europe
+      </p>
+    </li>
+    <li
+      className="country-info-item"
+    >
+      <img
+        alt="Country flag"
+        className="country-flag"
+        src="../../assets/favourites/Canada.jpg"
+      />
+    </li>
+  </ul>
+</div>
+`;

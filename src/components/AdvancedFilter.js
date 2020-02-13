@@ -12,6 +12,7 @@ const AdvancedFilter = ({ searchValue, handleChangeValue }) => {
           onChange={e => handleChangeValue(e)}
           placeholder="country"
           className="filter-input"
+          autoFocus
         />
         <input
           type="text"

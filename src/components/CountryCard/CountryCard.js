@@ -3,7 +3,7 @@ import "./CountryCard.css";
 
 const CountryCard = ({ country }) => {
   return (
-    <div className="country-card">
+    <div className="country-card" data-testid="country-card">
       <h3>{country.name}</h3>
       <hr />
       <ul className="country-info-list">

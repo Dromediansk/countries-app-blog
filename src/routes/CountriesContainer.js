@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useReducer } from "react";
-import CountryCard from "../components/CountryCard";
+import CountryCard from "../components/CountryCard/CountryCard";
 import AdvancedFilter from "../components/AdvancedFilter";
 
 // Calls
