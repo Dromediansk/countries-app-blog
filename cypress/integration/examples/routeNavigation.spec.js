@@ -4,7 +4,6 @@ describe("Routes", () => {
   });
 
   it("Redirect to data route", () => {
-    cy.visit("/");
     cy.get(".nav-list-item > a")
       .eq(1)
       .click();
