@@ -1,46 +1,34 @@
-import React, { useState, useEffect, useRef, useReducer } from "react";
+import React, { useRef, useReducer } from "react";
 import CountryCard from "../components/CountryCard/CountryCard";
 import AdvancedFilter from "../components/AdvancedFilter";
-
-// Calls
-import { getAllCountries } from "../calls/countries";
+import { useFetch } from "../utils/customHooks";
+import { Spinner } from "../utils/Spinner";
 
 import "./CountriesContainer.css";
 
 const CountriesContainer = () => {
-  const [countries, setCountries] = useState([]);
   const componentIsMounted = useRef(true);
   const [filterInput, setFilterInput] = useReducer(
     (state, newState) => ({ ...state, ...newState }),
     {
       name: "",
       capital: "",
-      population: ""
+      population: "",
     }
   );
+  const { data, loading, error } = useFetch(
+    "https://restcountries.eu/rest/v2/all",
+    componentIsMounted,
+    []
+  );
 
-  useEffect(() => {
-    getAllCountries()
-      .then(response => {
-        if (componentIsMounted.current) {
-          setCountries(response);
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
-    return () => {
-      componentIsMounted.current = false;
-    };
-  }, []);
-
-  const handleFilterCountries = event => {
+  const handleFilterCountries = (event) => {
     const { name, value } = event.target;
     setFilterInput({ [name]: value });
   };
 
-  const filterCountries = list => {
-    return list.filter(item => {
+  const filterCountries = (list) => {
+    return list.filter((item) => {
       return (
         item.name.toLowerCase().includes(filterInput.name.toLowerCase()) &&
         item.capital
@@ -51,7 +39,7 @@ const CountriesContainer = () => {
     });
   };
 
-  const countriesList = filterCountries(countries);
+  const countriesList = filterCountries(data);
 
   return (
     <>
@@ -60,9 +48,13 @@ const CountriesContainer = () => {
         handleChangeValue={handleFilterCountries}
       />
       <div className="countries-container">
-        {countriesList.map(country => (
-          <CountryCard key={country.numericCode} country={country} />
-        ))}
+        {loading ? (
+          <Spinner />
+        ) : (
+          countriesList.map((country) => (
+            <CountryCard key={country.numericCode} country={country} />
+          ))
+        )}
       </div>
     </>
   );
