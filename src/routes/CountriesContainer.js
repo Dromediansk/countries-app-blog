@@ -50,6 +50,8 @@ const CountriesContainer = () => {
       <div className="countries-container">
         {loading ? (
           <Spinner />
+        ) : error ? (
+          <div>Ooops. An error occured!</div>
         ) : (
           countriesList.map((country) => (
             <CountryCard key={country.numericCode} country={country} />
