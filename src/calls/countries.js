@@ -7,3 +7,7 @@ export const getAllCountries = async () => {
     console.log(err);
   }
 };
+
+export const countries = {
+  getAllCountries,
+};
