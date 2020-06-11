@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="country-card"
+    data-testid="Slovakia-card"
+  >
+    <h3>
+      Slovakia
+    </h3>
+    <hr />
+    <ul
+      class="country-info-list"
+    >
+      <li
+        class="country-info-item"
+      >
+        <h4>
+          Capital:
+        </h4>
+        <p>
+          Bratislava
+        </p>
+      </li>
+      <li
+        class="country-info-item"
+      >
+        <h4>
+          Population:
+        </h4>
+        <p>
+          5000000
+        </p>
+      </li>
+      <li
+        class="country-info-item"
+      >
+        <h4>
+          Region:
+        </h4>
+        <p>
+          Europe
+        </p>
+      </li>
+      <li
+        class="country-info-item"
+      >
+        <img
+          alt="Country flag"
+          class="country-flag"
+          src="Slovakia flag"
+        />
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

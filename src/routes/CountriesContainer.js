@@ -1,6 +1,6 @@
 import React, { useRef, useReducer } from "react";
 import CountryCard from "../components/CountryCard/CountryCard";
-import AdvancedFilter from "../components/AdvancedFilter";
+import AdvancedFilter from "../components/AdvancedFilter/AdvancedFilter";
 import { useFetch } from "../utils/customHooks";
 import { Spinner } from "../utils/Spinner";
 
@@ -47,11 +47,11 @@ const CountriesContainer = () => {
         searchValue={filterInput}
         handleChangeValue={handleFilterCountries}
       />
-      <div className="countries-container">
+      <div className="countries-container" data-testid="countries-container">
         {loading ? (
           <Spinner />
         ) : error ? (
-          <div>Ooops. An error occured!</div>
+          <div data-testid="error-message">Ooops. An error occured!</div>
         ) : (
           countriesList.map((country) => (
             <CountryCard key={country.numericCode} country={country} />
